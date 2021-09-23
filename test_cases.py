@@ -3,6 +3,7 @@ from testWheel import test
 output = test.ConfigLibrary()
 
 def test_get_config_content(file_path):
+    #test case to check .cfg, .conf file format
     conf_file =  output.get_config_content("config.cfg")
     assert conf_file
 
