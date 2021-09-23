@@ -12,9 +12,14 @@ Depending upon the parameters given, module should store the configurations in .
     `virtualenv venv`  /* Create a virtual environment */
     `venv/bin/activate` /* Activate the virtual environment */
 
+2. Install yaml module
+    `pip install pyyaml`
 
-2. Generate wheel file
+3. Install pytest module
+    `pip install pytest`
+
+4. Generate wheel file
     `python setup.py bdist_wheel`
 
-3. A dist folder gets created which stores the wheel(.whl) file.
+5. A dist folder gets created which stores the wheel(.whl) file.
 
