@@ -14,12 +14,6 @@ setup(
     long_description_content_type="text",
     packages=find_packages(include=['testWheel']),
     python_requires='>=3.7',
-    install_requires=['pyyaml','pytest']
+    install_requires=['pyyaml', 'pytest']
     # packages=['testWheel'],
 )
-
-
-
-
-
-
