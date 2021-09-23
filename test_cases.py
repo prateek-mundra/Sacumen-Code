@@ -11,5 +11,3 @@ def test_get_yaml_content(file_path):
     yaml_file =  output.get_yaml_content("config.yaml")
     assert yaml_file
     
-# def test_name():
-#     assert test.ConfigLibrary.name()
