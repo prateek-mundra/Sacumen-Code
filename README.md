@@ -22,3 +22,5 @@ Depending upon the parameters given, module should store the configurations in .
 
 6. A dist folder gets created which stores the wheel(.whl) file.
 
+7. Run pip install < wheel file name > 
+
