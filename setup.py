@@ -17,3 +17,8 @@ setup(
     install_requires=['pyyaml', 'pytest']
     # packages=['testWheel'],
 )
+
+"""
+The name parameter contains the name of the package, the version is the version number.
+The packages parameter is a list containing the names of files/ directories or packages.
+"""
