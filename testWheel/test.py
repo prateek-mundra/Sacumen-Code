@@ -31,7 +31,7 @@ class ConfigLibrary():
         with open(file_path) as file:
             try:
                 data = yaml.full_load(file)
-                print(data)
+                return data
             except yaml.YAMLError as e:
                 print(e)
 
@@ -44,7 +44,8 @@ class ConfigLibrary():
         if file_extention == 'json':
             filename = filename + '.json'
         else:
-            filename = '.env'
+            filename += '.env'
+                    
         with open(filename, 'w') as file:
             json.dump(new_data, file, indent=4, ensure_ascii=False)
 
@@ -56,4 +57,11 @@ class ConfigLibrary():
     def set_config_env(env_name, env_value):
         # set environment variable
         os.environ[env_name] = env_value
+        print(os.environ[env_var])
         return 'Success'
+
+
+# file handling : if not json or env
+# save file = 
+
+
