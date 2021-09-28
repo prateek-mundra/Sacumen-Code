@@ -9,11 +9,11 @@ import collections
 from configparser import ConfigParser
 
 
-class ConfigLibrary():
+class ConfigLibrary:
 
     # def __init__(self):
 
-    def get_config_content(file_path, parent_key=False, separator='.'):
+    def get_config_content(self,file_path):
         """
         this method reads .conf, .cfg file given by the user
         configParser module is used to read confgurations file
@@ -23,19 +23,24 @@ class ConfigLibrary():
         config.read(file_path)
         details_dict = {s: dict(config.items(s, True))
                         for s in config.sections()}
-        self.flat_dict(details_dict)
-        # return details_dict
-    @staticmethod
-    def flat_dict(self,details_dict):
-        items = []
-        for k,v in details_dict.items():
-            try:
-                items.extend(flat_dict(v, '%s%s' % (parent_key, k)).items())
-            except AttributeError:
-                items.append(('%s%s' % (parent_key,k), v))
-        return dict(items)
+        print(details_dict)
+        
+        details_dict__flat = self.parse_dict(details_dict)
+        print(details_dict__flat)
+    
+    
+    def parse_dict(self, details_dict, lkey=''):
+        ret = {}
+        for rkey,val in details_dict.items():
+            key = lkey+rkey
+            if isinstance(val, dict):
+                ret.update(self.parse_dict(val, key+'_'))
+            else:
+                ret[key] = val
+        return ret
+   
 
-    def get_yaml_content(file_path):
+    def get_yaml_content(self, file_path):
         """ this method reads .yaml file
         to convert yaml file to python package full_load method is used.
         """
@@ -47,7 +52,7 @@ class ConfigLibrary():
                 print(e)
 
     # writes file data into .json or .env file
-    def write_config_file(file_path, filename='config', file_extention='json'):
+    def write_config_file(self, file_path, filename='config', file_extention='json'):
         config = configparser.ConfigParser()
         config.read(file_path)
         new_data = {s: dict(config.items(s, True)) for s in config.sections()}
@@ -65,7 +70,7 @@ class ConfigLibrary():
 
         return 'Success'
 
-    def set_config_env(env_name, env_value):
+    def set_config_env(self, env_name, env_value):
         # set environment variable
         os.environ[env_name] = env_value
         print(os.environ[env_var])
