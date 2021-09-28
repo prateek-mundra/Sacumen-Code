@@ -1,5 +1,5 @@
 ### Details about Module ###
-This Project is designed to create a module which can read .yaml, .cfg and .conf file formats and generate a dictionary out of it.
+This Project is designed to create a module which can read .yaml, .cfg and .conf file formats and generate a flat dictionary out of it.
 
 Depending upon the parameters given, module should store the configurations in .env or .json file format or set the configurations in os environment.
 

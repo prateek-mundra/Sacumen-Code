@@ -1,1 +1,1 @@
-from .test import ConfigLibrary
+from .sample_module import ConfigLibrary
